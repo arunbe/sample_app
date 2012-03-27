@@ -18,7 +18,7 @@ describe "Static pages" do
    
    describe "About page" do
      before{ visit about_path }
-       it{should have_content('About')}
+     it{should have_content('About')}
      it{should have_selector('title',:text => full_title("About"))}
    end
    
@@ -27,9 +27,15 @@ describe "Static pages" do
       it{should have_selector('h1', text: 'Contact')}
      it{should have_selector('title',text: full_title("Contact"))}
    end
+   describe "Static pages" do
+     it "should have the layout" do 
+     visit root_path
+     click_link "About"
+     end
+ end
+
+
 end
-
-
 
 
 
