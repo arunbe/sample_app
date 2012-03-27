@@ -1,8 +1,10 @@
 SampleApp::Application.routes.draw do
+  get "users/new"
+
   get "static_pages/home"
   get "static_pages/help"
   get "static_pages/about"
-
+  get "static_pages/contact"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -53,7 +55,11 @@ SampleApp::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
-
+  root :to => 'Static_pages#home'
+  match '/help', to: 'Static_pages#help'
+  match '/about', to: 'Static_pages#about'
+  match '/contact', to: 'Static_pages#contact'
+  match '/signup', to: 'users#new'
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
