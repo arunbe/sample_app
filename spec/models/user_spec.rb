@@ -60,11 +60,13 @@ describe User do
        it { should_not be_valid }
      end
    
+   
    describe "when email address is exists as same" do
      before do
-       user_with_same_email = @user.dup
-       user_with_same_email.email = @user.email.upcase 
-       user_with_same_email.save
+       user = User.create(name: "exampleUser", email: "user2@example.com", 
+          password: "foobar", password_confirmation: "foobar")
+       @user.email = user.email
+       @user.save
      end
      it { should_not be_valid }
    end
