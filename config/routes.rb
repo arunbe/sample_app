@@ -63,6 +63,7 @@ SampleApp::Application.routes.draw do
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#delete', via: :delete
+  #match '/edit', to: 'users#edit'
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
