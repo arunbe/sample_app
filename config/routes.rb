@@ -1,5 +1,6 @@
 SampleApp::Application.routes.draw do
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
   get "static_pages/home"
   get "static_pages/help"
@@ -60,6 +61,8 @@ SampleApp::Application.routes.draw do
   match '/about', to: 'Static_pages#about'
   match '/contact', to: 'Static_pages#contact'
   match '/signup', to: 'users#new'
+  match '/signin', to: 'sessions#new'
+  match '/signout', to: 'sessions#delete', via: :delete
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
